@@ -15,7 +15,9 @@ app.post("/events", (req, res) => {
   axios
     .post("http://localhost:4200/events", event)
     .catch((err) => console.log(err));
-  //axios.post("http://localhost:5000/events", event);
+  axios
+    .post("http://localhost:7000/events", event)
+    .catch((err) => console.log(err));
 
   res.send({ status: "OK" });
 });
