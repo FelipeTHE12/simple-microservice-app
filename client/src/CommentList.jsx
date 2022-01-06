@@ -4,7 +4,15 @@ import axios from "axios";
 const CommentList = ({ comments }) => {
   //console.log(props);
   const rendredComments = comments.map((comment) => {
-    return <li key={comment.id}>{comment.content}</li>;
+    const contentType = {
+      APPROVED: comment.content,
+      PENDING: "Aguardando Moderação",
+      REJECTED: "Comentario Ofensivo",
+    };
+
+    const content = contentType[comment.status];
+
+    return <li key={comment.id}>{content}</li>;
   });
 
   return <ul>{rendredComments}</ul>;
