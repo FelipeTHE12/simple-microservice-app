@@ -8,6 +8,7 @@ const PostList = () => {
 
   const handlePosts = async () => {
     const response = await axios.get("http://localhost:7000/posts");
+    console.log(response.data);
     setPosts(response.data);
   };
 
