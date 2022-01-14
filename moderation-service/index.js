@@ -10,7 +10,7 @@ app.post("/events", async (req, res) => {
   if (type === "CommentCreated") {
     const status = data.content.includes("fdp") ? "REJECTED" : "APPROVED";
 
-    await axios.post("http://localhost:6000/events", {
+    await axios.post("http://event-bus-srv:6000/events", {
       type: "CommentModerated",
       data: {
         id: data.id,
@@ -20,7 +20,7 @@ app.post("/events", async (req, res) => {
       },
     });
   }
-
+  console.log("Evento recebido");
   res.send({});
 });
 

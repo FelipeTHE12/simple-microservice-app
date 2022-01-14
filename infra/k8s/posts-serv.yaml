@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-srv
+spec:
+  type: NodePort
+  selector: #pods...
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4000 # Nodeport port/ can be different port
+      targetPort: 4000 # application port
